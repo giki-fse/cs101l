@@ -687,6 +687,26 @@ Outcomes:
 * Students should be able to use while, nested while and do while loop loops.  
 * Students should be able to use For loop, Nested for Loop and differentiate them.
 
+### Ternary Operator
+
+Syntax
+``` cpp
+variable = (condition) ? expressionTrue : expressionFalse;
+```
+
+#### Example
+
+``` cpp
+    int time = 20;
+    string result = (time < 18) ? "Good day." : "Good evening.";
+    cout << result;
+
+```
+Output
+```
+Good evening.
+```
+
 ### Switch Statement
 
 Switch statement is C/C++ language is used for selection control. The difference between if/else and 
@@ -717,7 +737,7 @@ Boolean operations.
 
 #### Flow Chart of Switch
 
-![[Pasted image 20240924103035.png]]
+![[images/switch_flow_chart.png]]
 
 #### Example
 
@@ -976,7 +996,7 @@ while ( expression )
 The expression can be any combination of Boolean statements that are legal. Even, (while x \== 5 || v \== 7) which says execute the code while x equals five or while v equals 7.
 
 #### Flow Chart of While Loop
-![[Pasted image 20240924122525.png]]
+![[images/while_loop_flow_chart.png]]
 #### Example
 
 Write a program using while loop who print the values from 10 to 1.
@@ -1384,7 +1404,7 @@ Here is the flow of control in a for loop:
 * After the body of the for loop executes, the flow of control jumps back up to the **increment** statement. This statement allows you to update any loop control variables. This statement can be left blank, as long as a semicolon appears after the condition.
 * The condition is now evaluated again. If it is true, the loop executes and the process repeats itself (body of loop, then increment step, and then again condition). After the condition becomes false, the for loop terminates.
 #### Flow Diagram
-![[Pasted image 20240924105618.png]]
+![[images/for_loop_flow_chart.png]]
 #### Example 4.1
 ``` cpp
 #include <iostream>
