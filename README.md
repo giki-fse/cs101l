@@ -1499,24 +1499,20 @@ xxxxxxxxxxxx
 Missing init statement in for loop
 
 ``` cpp
-#include<iostream>
+#include <iostream>
 
 using namespace std;
 
 int main()
 
 {
-
-int x = 0;
-for ( ; x < 10; x++ )
-
-{
-
-cout<<”\n”<<x;
-
-}
-return 0;
-
+    int x = 0;
+    for (; x < 10; x++)
+    {
+        cout << "\n"
+             << x;
+    }
+    return 0;
 }
 ```
 
@@ -1537,24 +1533,22 @@ The following program fragments print the numbers 1 - 20. Compare the different 
 ``` cpp
 int ctr = 1;
 
-do
+    do
+    {
+        cout << ctr++ << "\n";
+    } while (ctr <= 20);
 
-{
+```
 
-cout << ctr++ << “\n”;
+##### for
 
-} while
-
-(ctr<=20); for:
+``` cpp
 
 int ctr;
-
 for (ctr = 1; ctr <=20; ctr++)
-
 {
-Cout<<ctr<<”\n”;
+    Cout<<ctr<<”\n”;
 }
-
 ```
 
 ##### while
@@ -1569,48 +1563,6 @@ while (ctr<=20)
 ### Common Error
 If you wish the body of a for loop to be executed, DO NOT put a semicolon after the for's parentheses. Doing so will cause the for statement to execute only the counting portion of the loop, creating the illusion of a timing loop. The body of the loop will never be executed.
 Semicolons are required inside the parentheses of the for loop. The for loop is the only statement that requires such semicolon placement.
-
-### Practice Problem 4.1
-
-Write a program that prompts the user to input an integer and then outputs both the individual digits of the number and the sum of the digits. For example, it should output the individual digits of 3456 as 3 4 5 6, output the individual digits of 8030 as 8 0 3 0, output the individual digits of 2345526 as 2 3 4 5 5 2 6, output the individual digits of 4000 as 4 0 0 0, and output the individual digits of -2345 as 2 3 4 5.
-
-``` cpp
-
-#include <iostream>
-
-#include <cstdlib>
-
-using namespace std;
-
-int main()
-
-{
-
-int inputNumber, sum, individualNumber;
-
-cin >> inputNumber;
-
-inputNumber = abs(inputNumber); //Handle negative
-
-numbers sum = 0;
-
-do {
-
-individualNumber = inputNumber % 10; //Extract the last digit of the
-
-number sum += individualNumber;
-
-inputNumber = inputNumber / 10; //Remove the last
-
-digit } while (inputNumber > 0);
-
-cout << "The sum of the individual numbers is: " << sum << endl;
-
-return 0;
-
-}
-
-```
 
 ### Practice Problem 4.2
 
