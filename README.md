@@ -1220,6 +1220,43 @@ You entered: 160277
 Enter number (0 to end): 0  
 You entered: 0
 ```
+
+### Continue Statement
+
+In computer programming, the `continue` statement is used to skip the current iteration of the loop and the control of the program goes to the next iteration.
+
+The syntax of the `continue` statement is:
+
+``` cpp
+continue;
+```
+
+#### Example
+
+``` cpp
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int i = 0;
+    while (i <= 5)
+    {
+        // condition to continue
+        // it skips cout if number is even
+        if (i % 2 == 0)
+        {
+            i++;
+            continue;
+        }
+        cout << i << endl;
+        i++;
+    }
+    return 0;
+}
+
+```
+
 ### Practice Problem 1
 
 GIKI admin opens a joint account for their employees (Assistant professors, lecturers and Engineers) with starting amount of 50,000. Any employee in case of emergency in need of money can utilize the account and draw certain amount from the account i-e For Assistant professors its 25,000-maximum limit, for lecturers its 20,000 and for engineers its 10,000. Design a transaction system for the admin which applies all the checks (of maximum limit) on account and perform transactions. System should detect invalid inputs and display error messages
@@ -1579,127 +1616,126 @@ int main()
 
 {
 
-char letter;
+    char letter;
 
-int counter = 0;
+    int counter = 0;
 
-cout << "Program to convert letters to their corresponding telephone digits" << endl;
+    cout << "Program to convert letters to their corresponding telephone digits" << endl;
 
-while (cin.get(letter) && counter < 7 ) {
+    while (cin.get(letter) && counter < 7)
+    {
 
-if (letter != ' ' && letter >= 'A' && letter <= 'z') {
+        if (letter != ' ' && letter >= 'A' && letter <= 'z')
+        {
 
-counter++; // Only increment the counter for valid characters
+            counter++; // Only increment the counter for valid characters
 
-if (letter > 'Z') {
+            if (letter > 'Z')
+            {
 
-letter = (int)letter-32; // Convert lowercase to uppercase if required.
+                letter = (int)letter - 32; // Convert lowercase to uppercase if required.
+            }
 
-}
+            if (counter == 4)
+            {
 
-if (counter == 4) {
+                cout << "-"; // Print the hyphen when required
+            }
 
-cout << "-"; // Print the hyphen when required
+            switch (letter)
+            {
 
-}
+            case 'A':
 
-switch (letter) {
+            case 'B':
 
-case 'A':
+            case 'C':
 
-case 'B':
+                cout << "2";
 
-case 'C':
+                break;
 
-cout << "2";
+            case 'D':
 
-break;
+            case 'E':
 
-case 'D':
+            case 'F':
 
-case 'E':
+                cout << "3";
 
-case 'F':
+                break;
 
-cout << "3";
+            case 'G':
 
-break;
+            case 'H':
 
-case 'G':
+            case 'I':
 
-case 'H':
+                cout << "4";
 
-case 'I':
+                break;
 
-cout << "4";
+            case 'J':
+            case 'K':
 
-break;
+            case 'L':
 
-case 'J':
-case 'K':
+                cout << "5";
 
-case 'L':
+                break;
 
-cout << "5";
+            case 'M':
 
-break;
+            case 'N':
 
-case 'M':
+            case 'O':
 
-case 'N':
+                cout << "6";
 
-case 'O':
+                break;
 
-cout << "6";
+            case 'P':
 
-break;
+            case 'Q':
 
-case 'P':
+            case 'R':
 
-case 'Q':
+            case 'S':
 
-case 'R':
+                cout << "7";
 
-case 'S':
+                break;
 
-cout << "7";
+            case 'T':
 
-break;
+            case 'U':
 
-case 'T':
+            case 'V':
 
-case 'U':
+                cout << "8";
 
-case 'V':
+                break;
 
-cout << "8";
+            case 'W':
 
-break;
+            case 'X':
 
-case 'W':
+            case 'Y':
 
-case 'X':
+            case 'Z':
 
-case 'Y':
+                cout << "9";
 
-case 'Z':
+                break;
 
-cout << "9";
+            default:
 
-break;
+                break;
+            }
+        }
+    }
 
-default:
-
-break;
-
-}
-
-}
-
-}
-
-return 0;
-
+    return 0;
 }
 ```
 
@@ -1708,6 +1744,7 @@ Write a C++ program that does the following:
 - It asks the user to enter an odd negative integer.
 - The program reads a value n entered by the user. If the value is not legal, the program repeatedly makes the user type in another value until a legal value of n has been entered.
 - The program computes the equivalent positive number and finds the entries of Fibonacci series up to that number.
+
 ``` cpp
 #include <iostream>
 
@@ -1717,53 +1754,43 @@ int main()
 
 {
 
-int c, r, n;
+    int c, r, n;
 
-int fibonacci, first = 0, second = 0;
+    int fibonacci, first = 0, second = 0;
 
-cout << "Enter a negative odd integer: ";
+    cout << "Enter a negative odd integer: ";
 
-cin >> n;
+    cin >> n;
 
-while ((n >= 0) || (n % 2 == 0))
+    while ((n >= 0) || (n % 2 == 0))
 
-{
+    {
 
-cout << "Illegal Entry. Try again: ";
+        cout << "Illegal Entry. Try again: ";
 
-cin >> n;
+        cin >> n;
+    }
 
-}
+    n = -1 * n;
 
-n = -1*n;
+    cout << "Fibonicci Series upto " << n << " Terms " << endl;
 
-cout << "Fibonicci Series upto " << n << " Terms "<<
-
-endl; for ( int j = 0 ; j < n ; j++ )
-{
-
-if ( j <= 1 )
-
-fibonacci = j;
-
-else
-
-{
-
-fibonacci = first + second;
-
-}
-
-first = second;
-
-second = fibonacci;
-
-cout << fibonacci <<", ";
-
-}
-
-return 0;
-
+    for (int j = 0; j < n; j++)
+    {
+        if (j <= 1)
+            fibonacci = j;
+        else
+        {
+            fibonacci = first + second;
+        }
+        first = second;
+        second = fibonacci;
+        cout << fibonacci << ", ";
+    }
+    return 0;
 }
 ```
+
+
+Lab 
 
