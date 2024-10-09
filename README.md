@@ -1793,4 +1793,552 @@ int main()
 
 ## Lab 5: User defined Functions
 
+Learning Objectives
 
+* Call function by value
+* Constant and default parameters
+* Scope of variables within function
+* Parameter Promotion and Demotion
+* Built-in Functions
+
+Outcomes
+
+* Students should be able to understand the concepts of call by value
+* Students should be able to understand the concept constant and default parameter
+* Students should practice the examples discussed in the tutorial to get the clear image of functions before performing tasks.
+
+### Function Declaration (Function Prototype)
+
+Declares the function to the compiler, informing it about the function's name, return type, and parameters (if any) without providing the function body.
+
+#### Syntax
+    ```cpp
+    return_type function_name(parameter_list);
+    ```
+
+#### Example 5.1
+    ```cpp
+    int add(int, int);
+    ```
+
+### Function Definition
+
+Provides the actual implementation of the function. It consists of the same signature (return type, function name, parameter list) as in the declaration but also includes the function body.
+
+#### Syntax
+    ```cpp
+    return_type function_name(parameter_list) {
+        // Function body
+    }
+    ```
+
+#### Example 5.2:
+    ```cpp
+    int add(int a, int b) {
+        return a + b;
+    }
+    ```
+
+### Returning Values from a Function in C++
+
+A function can return a value to the calling code. The value returned must match the function's return type. A function that does not return any value has a return type of `void`.
+
+The return statement ends the function's execution, and the value specified is sent back to the location where the function was called. If the function has a return type of void, no value is returned and no return statement is necessary, though it can be used to exit early.
+
+#### Syntax:
+```cpp
+// within function definition
+return expression;
+```
+
+#### Example 5.
+
+``` cpp
+
+int max(int a, int b) {
+    if (a > b) {
+        return a;  // If a is greater, return a
+    } else {
+        return b;  // Otherwise, return b
+    }
+}
+
+```
+
+#### Example 
+
+``` cpp
+void checkNumber(int n) {
+    if (n < 0) {
+        cout << "Negative number" << endl;
+        return;  // Exit early
+    }
+    cout << "Non-negative number" << endl;
+}
+```
+
+### Function Call
+
+A **function call** is the process of invoking a function to execute its code. When you call a function, you provide the necessary arguments (if any) and the program jumps to the function definition to run the code.
+
+#### Syntax:
+```cpp
+function_name(argument_list);
+```
+
+Any expression can be passed as  an argument into a function, for instance, the following is a legal function call for a maximum function defined to take 3 arguments: maximum( a, b, a + b, maximum(c + d, e, f) ).  
+
+C++  functions  in  can  be  compared  to  mathematical  functions:  just  like  f(x,  y,  z)  means  some mathematical expression named f evaluated for certain values  of x, y, and z, isMultiple(a, b) means some set of instructions named isMultiple evaluated for certain values of a and b. 
+
+#### Example 5.3
+
+```cpp
+#include <iostream>
+using namespace std;
+
+// Function declaration
+int add(int, int);
+
+int main() {
+    int num1 = 5, num2 = 10;
+    
+    // Function call
+    int result = add(num1, num2);
+    cout << "Sum: " << result << endl;
+    
+    return 0;
+}
+
+// Function definition
+int add(int a, int b) {
+    return a + b;
+}
+```
+
+### Parameters and Arguments
+**Parameters** and **arguments** are used to pass data to functions. While they are often used interchangeably, there is a subtle difference between the two. 
+### Parameters 
+**Parameters** are the variables defined by a function that receive the values when the function is called. They are specified in the function declaration and definition. 
+#### Syntax
+```cpp 
+return_type function_name(parameter_type parameter_name); 
+```
+
+#### Example 5.
+
+``` cpp
+int add(int a, int b) {
+    return a + b;
+}
+
+```
+
+In this example, `int a` and `int b` are **parameters** of the `add` function. They are placeholders that will hold the values passed when the function is called.
+
+### Arguments
+
+**Arguments** are the actual values passed to the function when it is called. These values are assigned to the corresponding parameters.
+
+``` cpp
+function_name(argument1, argument2, ...);
+```
+
+#### Example 5.
+``` cpp
+int result = add(5, 10);
+```
+Here, `5` and `10` are **arguments** that are passed to the `add` function. These arguments are copied into the parameters `a` and `b` respectively when the function is executed.
+
+#### Example 5.
+
+```cpp
+#include <iostream>
+using namespace std;
+
+// Function declaration with parameters
+int multiply(int, int);
+
+int main() {
+    int num1 = 6, num2 = 7;
+
+    // Function call with arguments
+    int result = multiply(num1, num2);
+    
+    cout << "Product: " << result << endl;
+    
+    return 0;
+}
+
+// Function definition with parameters
+int multiply(int a, int b) {
+    return a * b;
+}
+
+```
+
+- **Parameters**: In the `multiply` function, `int a` and `int b` are parameters.
+- **Arguments**: In `main()`, when the function is called as `multiply(num1, num2)`, `num1` and `num2` (which have the values `6` and `7`) are arguments passed to the function.
+- The arguments are copied into the parameters (`a` and `b`) within the function and used to compute the product.
+
+### Pass Function Arguments by Value
+
+In this method, the actual value of the argument is passed to the function. The function works on a copy of the value, so any changes made to the parameter inside the function do not affect the original argument.
+
+#### Example 5.
+
+``` cpp
+void increment(int a) {
+    a = a + 1;
+}
+
+int main() {
+    int num = 5;
+    increment(num);
+    cout << num << endl;  // Output will still be 5
+    return 0;
+}
+```
+In the example above, `num` is passed by value to the `increment` function, and changes made to `a` do not affect `num` in the calling code.
+
+### Pass Function Arguments by Reference
+
+In this method, the reference (or memory address) of the argument is passed to the function. Changes made to the parameter inside the function affect the actual argument.
+
+``` cpp
+void increment(int &a) {
+    a = a + 1;
+}
+
+int main() {
+    int num = 5;
+    increment(num);
+    cout << num << endl;  // Output will now be 6
+    return 0;
+}
+
+```
+Here, `num` is passed by reference, so the `increment` function modifies the actual value of `num`.
+
+### Const Parameters
+
+When a function parameter is declared as `const`, it means that the function cannot modify the value of that parameter. This is useful when you want to prevent accidental changes to the passed arguments, especially when passing by reference or pointer.
+
+#### Syntax
+``` cpp
+return_type function_name(const parameter_type &parameter_name);
+```
+
+#### Example 5. 
+
+``` cpp
+void printNumber(const int &num) {
+    cout << "Number: " << num << endl;
+    // num = num + 1;  // Error: `num` is constant and cannot be modified
+}
+
+int main() {
+    int value = 10;
+    printNumber(value);
+    return 0;
+}
+
+```
+
+In this example, the function `printNumber` accepts a `const` reference to an integer. Since the parameter is declared as `const`, it cannot be modified within the function. This is particularly useful when passing large objects by reference to avoid copying while ensuring the function doesn’t modify the object.
+
+#### Benefits of Using `const`:
+
+- **Prevents Modification**: Ensures that the parameter cannot be modified within the function, preventing unintended changes.
+- **Performance**: Passing large objects (like strings, vectors, or custom objects) by `const` reference avoids unnecessary copying while still protecting the argument from modification.
+
+#### Example 5.
+
+``` cpp
+void display(const string &message) {
+    cout << message << endl;
+}
+
+int main() {
+    string greet = "Hello, C++!";
+    display(greet);  // Efficient and safe
+    return 0;
+}
+
+```
+
+### Default Parameters
+
+C++ also supports **default parameters**, where a default value is assigned to a parameter if no argument is provided during the function call.
+
+#### Example 5.
+
+``` cpp
+int add(int a, int b = 10) { 
+	return a + b; 
+} 
+int main() {
+	cout << add(5) << endl; // Outputs 15 (since b defaults to 10) 
+	cout << add(5, 3) << endl; // Outputs 8 (b is overridden by 3) 
+	return 0; 
+}
+```
+
+In this example, the second parameter `b` has a default value of `10`. If the function `add` is called with only one argument, the default value is used. If two arguments are provided, the second argument overrides the default value.
+
+### Scopes
+
+**Scope** refers to the region or area in a program where a variable or function is accessible. The concept of scope defines the lifetime and visibility of a variable or function within different parts of a program. Variables or functions can only be used within the scope they are defined in.
+
+**Types of Scopes:**
+
+1. Local Scope 
+2. Global Scope 
+3. Block Scope 
+4. Function Scope
+
+#### Local Scope
+
+A variable declared inside a function or block is said to have **local scope**. It is only accessible within that function or block. Once the function or block is exited, the variable goes out of scope and is destroyed. 
+##### Example (Local Scope): 
+ ``` cpp
+#include <iostream> 
+using namespace std; 
+void myFunction() { 
+	int localVar = 10; // localVar has local scope 
+	cout << "Local variable: " << localVar << endl; 
+} 
+int main() { 
+	myFunction(); 
+	// cout << localVar; // Error: localVar is not accessible here 
+	return 0; 
+} 
+```
+
+In this example, `localVar` is declared inside the `myFunction()` function, so it has **local scope**. It cannot be accessed outside the function.
+
+#### Global Scope
+
+A variable declared outside of all functions is said to have **global scope**. Global variables can be accessed from anywhere in the program after they have been declared.
+
+``` cpp
+#include <iostream>
+using namespace std;
+
+int globalVar = 20;  // globalVar has global scope
+
+void myFunction() {
+    cout << "Global variable inside function: " << globalVar << endl;
+}
+
+int main() {
+    cout << "Global variable in main: " << globalVar << endl;
+    myFunction();
+    return 0;
+}
+
+```
+
+In this example, `globalVar` is declared outside of any function, so it has **global scope** and is accessible both in `main()` and `myFunction()`.
+
+#### Block Scope
+
+Variables declared inside a block of code (enclosed by `{}`) have **block scope**. They are accessible only within that block and cannot be accessed from outside it.
+
+``` cpp
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int x = 10;
+    
+    {  // Start of block
+        int y = 20;
+        cout << "Inside block: x = " << x << ", y = " << y << endl;
+    }  // End of block
+    
+    // cout << y;  // Error: y is not accessible outside the block
+    return 0;
+}
+
+
+```
+
+In this example, `y` is declared inside a block and can only be used within that block. Outside the block, `y` is no longer in scope.
+
+#### Function Scope
+
+All variables declared inside a function (whether local or global) are said to have **function scope**. These variables are not accessible outside the function they are declared in.
+
+``` cpp
+#include <iostream>
+using namespace std;
+
+void myFunction() {
+    int funcVar = 100;  // funcVar has function scope
+    cout << "Function variable: " << funcVar << endl;
+}
+
+int main() {
+    myFunction();
+    // cout << funcVar;  // Error: funcVar is not accessible in main()
+    return 0;
+}
+
+```
+
+In this example, `funcVar` has **function scope** and is accessible only within `myFunction()`.
+
+### Practice Problem 5.1
+
+Create a class named `BankAccount` that represents a simple bank account. The class should have the following private member variables:
+- `accountNumber` (string)
+- `balance` (double)
+
+The class should include the following public methods:
+- A constructor that initializes the `accountNumber` and sets the `balance` to `0.0`.
+- A method `deposit(double amount)` that adds the specified amount to the balance.
+- A method `withdraw(double amount)` that subtracts the specified amount from the balance (only if sufficient funds are available).
+- A method `getBalance()` that returns the current balance.
+- A method `getAccountNumber()` that returns the account number.
+
+Implement the class in a program and demonstrate its functionality in the `main()` function.
+
+##### Requirements
+- Create a `BankAccount` object.
+- Perform several deposits and withdrawals.
+- Print the account number and the final balance.
+----
+##### Expected Output
+
+```
+Account Number: 123456 
+Deposited: $500.00 
+Deposited: $300.00 
+Withdrawn: $200.00 
+Withdrawn: $800.00 // Should show an error message for insufficient funds Final Balance: $800.00
+```
+
+``` cpp
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+// Global variables
+string accountNumber; // Account number
+double balance = 0.0; // Account balance initialized to 0.0
+
+// Function to initialize the bank account
+void initializeAccount(const string &accNum) {
+    accountNumber = accNum; // Set the account number
+    balance = 0.0;          // Initial balance set to 0
+}
+
+// Function to deposit money into the account
+void deposit(double amount) {
+    if (amount > 0) {
+        balance += amount; // Add amount to balance
+        cout << "Deposited: $" << amount << endl;
+    } else {
+        cout << "Invalid deposit amount!" << endl;
+    }
+}
+
+// Function to withdraw money from the account
+void withdraw(double amount) {
+    if (amount > balance) {
+        cout << "Insufficient funds for withdrawal!" << endl;
+    } else if (amount > 0) {
+        balance -= amount; // Subtract amount from balance
+        cout << "Withdrawn: $" << amount << endl;
+    } else {
+        cout << "Invalid withdrawal amount!" << endl;
+    }
+}
+
+// Function to get the current balance
+double getBalance() {
+    return balance;
+}
+
+// Function to get the account number
+string getAccountNumber() {
+    return accountNumber;
+}
+
+int main() {
+    // Initializing the account
+    initializeAccount("123456");
+
+    // Performing transactions
+    deposit(500.00);
+    deposit(300.00);
+    withdraw(200.00);
+    withdraw(800.00); // This should show an error for insufficient funds
+
+    // Displaying final account details
+    cout << "Account Number: " << getAccountNumber() << endl;
+    cout << "Final Balance: $" << getBalance() << endl;
+
+    return 0;
+}
+```
+
+
+### Practice Problem 5.2
+
+Create a simple program to calculate the area of a rectangle. Implement a function named `calculateArea` that accepts two parameters:
+- `length` (double) - the length of the rectangle
+- `width` (double, default value = 1.0) - the width of the rectangle (optional)
+
+The function should:
+- Calculate the area of the rectangle and store the result in a reference parameter `area` (double).
+- Return the area of the rectangle.
+
+Implement the program in the `main()` function, where you will:
+- Declare a variable for area.
+- Call `calculateArea` with both the `length` and `width` provided.
+- Call `calculateArea` again with only the `length` provided to use the default value for width.
+- Print the areas calculated in both cases.
+
+#### Requirements
+- Use default parameters in the function.
+- Use pass by reference for the area variable.
+
+---
+
+##### Expected Output
+
+---
+
+Area with length 5.0 and width 3.0: 15.0 Area with length 5.0 and default width: 5.0
+
+``` cpp
+#include <iostream>
+
+using namespace std;
+
+// Function to calculate the area of a rectangle
+double calculateArea(double length, double width = 1.0, double &area) {
+    area = length * width; // Calculate area and store it in the reference variable
+    return area;           // Return the area
+}
+
+int main() {
+    double area; // Variable to hold the calculated area
+
+    // Call calculateArea with both length and width
+    double length1 = 5.0;
+    double width1 = 3.0;
+    calculateArea(length1, width1, area);
+    cout << "Area with length " << length1 << " and width " << width1 << ": " << area << endl;
+
+    // Call calculateArea with only length (width uses default value)
+    double length2 = 5.0;
+    calculateArea(length2, area);
+    cout << "Area with length " << length2 << " and default width: " << area << endl;
+
+    return 0;
+}
+```
