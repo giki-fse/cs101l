@@ -1,5 +1,5 @@
 # CS101 Lab Manual
-## Lab 2: Variables, Arthimetic Operations and Control Structures -I
+## Lab 2: Variables, Arithmetic Operations and Control Structures -I
 
 The aims of this lab are to cover Control Structures of C++.
 
@@ -9,17 +9,17 @@ Learning Objectives:
 * Declaring Variables
 * Arithmetic Operators
 * Comments
-* input/output in C++
+* Input/output in C++
 * Comparison/Relational Operators
 * Logical Operators
-* If Statement
-* If - else statement
-* else - if Statement
+* `if` Statement
+* `if - else` statement
+* `else if` Statement
 
 Outcomes:
 
 * Students should be able to know C++ variables, their types and arithmetic operators.
-* Students should be able to use cin and cout methods in the programs.
+* Students should be able to use `cin` and `cout` methods in the programs.
 * Students should be able to use all types of C++ operators
 * Students should be able to use if, if-else and else-if statements
 
@@ -30,7 +30,7 @@ A variable is a place to store a piece of information. Just as you might store a
 C++ imposes fairly strict rules on how you can name your variables:
 
 * Must begin with a letter
-* Are "case-sensitive" (i.e., the variable "myNumber" is different from the variable "MYNUMBER" which is different from the variable "mYnUmBeR")
+* Are "case-sensitive" (i.e., the variable `myNumber` is different from the variable `MYNUMBER` which is different from the variable `mYnUmBeR`)
 * Can not have spaces
 * Can not have special characters (typographic symbols)
 
@@ -81,7 +81,7 @@ Declaring a variable in C++ is simple. Let's say you want to declare a variable 
 
 All this does is tell the computer that you plan to use an integer, and that the integer's name is myAge. In some languages, variables are initialized to 0 - that is, a variable's initial value will be 0. This is not true of C++! Sometimes your variables will be initialized to 0, but sometimes they will be initialized with garbage. As you might anticipate, this can cause some nasty bugs. Hence, it is always a good idea to initialize your variables with some value. If you don't know what a variable's initial value should be, initialize it to 0.
 
-#### Example 1
+#### Example 2.1
 
 Let’s write a program that stores your age in a variable and outputs “My age is 21". The first line of the main function initializes myAge by assigning it a value immediately. compile and run the following code.
 
@@ -127,7 +127,7 @@ As  you  can  see  in  the  previous  example, strings  can  be  initialized  wi
 Strings can also perform all the other basic operations that fundamental data types can, like being
 declared without an initial value and change its value during execution:
 
-#### Example
+#### Example 2.2
 
 ```cpp
 #include <iostream>
@@ -159,7 +159,7 @@ commonly called a single-line comment.
 
 The comment characters (/*, */, and //) have no special meaning within a character constant, string literal, or comment.
 
-#### Example
+#### Example 2.3
 
 ```cpp
 #include <iostream>
@@ -263,7 +263,7 @@ For example, `6%3` returns `0` because 3 goes into 6 **EXACTLY**. Similarly, `4%
 holes  at  a  time.  You  can't  fill  a  group  of  4  holes, therefore  the  3  holes  you  had  are  still  empty.
 Similar story for 7%4 because you can fill in one group of 4 but still have 3 holes remaining.
 
-#### Example 2
+#### Example 2.4
 
 ```cpp
 int main()
@@ -298,37 +298,6 @@ Enter value of b:
 Sum: 9
 ```
 
-### Practice Problem
-
-Write  a  C++  program  that  prompts  the  user  to  input  the  elapsed  time  for  an  event  in  seconds.  The program  then  outputs  the  elapsed  time  in hours, minutes, and  seconds.  (For  example, if  the  elapsed time is 9630 seconds, then the output is 2:40:30.)
-
-Solution:
-
-```cpp
-#include <iostream> 
- 
-using namespace std; 
- 
-int main()  
-{  
-    int secondsElapsed, hours, minutes, seconds; 
-    
-    const int secondsPerMinute = 60;  
-    const int secondsPerHour = 60 * secondsPerMinute; 
-    
-    cout << "Please enter the number of seconds elapsed: "; 
-    cin >> secondsElapsed; 
-    
-    hours = secondsElapsed / secondsPerHour; 
-    secondsElapsed = secondsElapsed % secondsPerHour; 
-    minutes = secondsElapsed / secondsPerMinute; 
-    seconds = secondsElapsed % secondsPerMinute; 
-    
-    cout << hours << ":" << minutes << ":" << seconds << endl; 
-    return 0;  
-} 
-```
-
 ### Comparison/Relational Operators
 
 | **Operator Name**        | **Syntax** |
@@ -348,7 +317,7 @@ int main()
 | Logical AND            | `a && b` |
 | Logical OR             | `a \|\| b` |
 
-### Decision COntrol Structures
+### Decision Control Structures
 
 Till now we have used sequence control structure in the programs, in which the various steps are executed
 sequentially i.e. in the same order in which they appear in the program. In C programming the instructions
@@ -369,7 +338,7 @@ if(expression)
 }
 ```
 
-#### Example 1
+#### Example 2.5
 
 Write a program in which it takes a number from keyboard as an input and if the number is greater than 100 it prints “The number is greater than hundred”.
 
@@ -414,7 +383,7 @@ else
 
 ```
 
-#### Example 2
+#### Example 2.6
 
 Write a program in which it takes two numbers from keyboard as input and subtract larger number
 from smaller.
@@ -448,7 +417,7 @@ int main()
 
 Nested if is basically if inside if.
 
-#### Example 3
+#### Example 2.7
 
 Write a program which take a number from keyboard and checks the number whether that number is 
 less than 100 ornot if that number is lessthan100 than check that is it less than 50 or not.   
@@ -496,7 +465,7 @@ and no further comparisons are performed.
 Syntax:
 
 ```cpp
-f (expression)  
+if (expression)  
 {  
     Block of statement;  
 }  
@@ -515,7 +484,7 @@ else
 } 
 ```
 
-#### Example 4
+#### Example 2.8
 
 Write a program which takes marks as input and shows the output as follows: 
 
@@ -553,7 +522,7 @@ involve a different variable or some combination of tests. The same pattern can 
 fewer else if's, and the final lone else may be left out. It is up to the programmer to devise the correct 
 structure for each programming problem.
 
-#### Example 5
+#### Example 2.9
 
 Write a program which takes marks as input and then shows output as follows:
 
@@ -597,7 +566,38 @@ In the above example logical operator && is used and because of this && operator
 only  be  satisfied  if  both  the  conditions  in  a  single  if  are  true.  If  any  of  the  condition  is  false 
 because of && operator the whole condition will be treated as false.
 
-### Practice Problem
+### Practice Problem 2.1
+
+Write  a  C++  program  that  prompts  the  user  to  input  the  elapsed  time  for  an  event  in  seconds.  The program  then  outputs  the  elapsed  time  in hours, minutes, and  seconds.  (For  example, if  the  elapsed time is 9630 seconds, then the output is 2:40:30.)
+
+Solution:
+
+```cpp
+#include <iostream> 
+ 
+using namespace std; 
+ 
+int main()  
+{  
+    int secondsElapsed, hours, minutes, seconds; 
+    
+    const int secondsPerMinute = 60;  
+    const int secondsPerHour = 60 * secondsPerMinute; 
+    
+    cout << "Please enter the number of seconds elapsed: "; 
+    cin >> secondsElapsed; 
+    
+    hours = secondsElapsed / secondsPerHour; 
+    secondsElapsed = secondsElapsed % secondsPerHour; 
+    minutes = secondsElapsed / secondsPerMinute; 
+    seconds = secondsElapsed % secondsPerMinute; 
+    
+    cout << hours << ":" << minutes << ":" << seconds << endl; 
+    return 0;  
+} 
+```
+
+### Practice Problem 2.2
 
 McDonald  offers  chill  out  deals  for  students.  They  have  special  student  discount  of  their  different 
 food  items  i-e:  25%  discount  on  each  chicken BBq  platter, 10%  on  mayo  garlic  fries, 20%  on  each 
@@ -668,11 +668,12 @@ int main()
         cout << "Your entered option is not available please try again\n";
 }
 ```
-## Lab 3: 
+## Lab 3: Control Structures - II
 
 The aims of this lab are to cover Control Structures of C++.  
 Learning Objectives:
 
+* Ternary Operator
 * Introduction to Switch and Case Statement 
 * General Syntax of Switch and Case Statements 
 * Use of Break Statement
@@ -694,7 +695,7 @@ Syntax
 variable = (condition) ? expressionTrue : expressionFalse;
 ```
 
-#### Example
+#### Example 3.1
 
 ``` cpp
     int time = 20;
@@ -739,7 +740,7 @@ Boolean operations.
 
 ![[images/switch_flow_chart.png]]
 
-#### Example
+#### Example 3.2
 
 ``` cpp
 #include <iostream>
@@ -786,7 +787,7 @@ To prevent this from happening, we'll need to insert another statement into our 
 The break statement terminates the execution of the nearest enclosing do, for, switch, or while 
 statement in which it appears. Control passes to the statement that follows the terminated statement. 
 
-#### Example
+#### Example 3.3
 
 ``` cpp
 #include <iostream>
@@ -889,7 +890,7 @@ int main()
 ```
 
 **NOTE:**  It is  almost always  a good idea to have a default case in switch statements. If you have no other  need  for  the  default,  use  it  to  test  for  the  supposedly  impossible  case,  and print  out  an  error message; this can be a tremendous aid in debugging.
-### Practice Problem
+### Practice Problem 3.1
 
 McDonald  offers  chill  out  deals  for  students.  They  have  special  student  discount  of  their  different 
 food  items  i-e:  25%  discount  on  each  chicken BBq  platter,  10%  on  mayo  garlic  fries,  20%  on  each 
@@ -966,6 +967,19 @@ int main()
     }
 }
 ```
+## Lab 4: Control Structure - III
+
+The aims of this lab are to cover Control Structures of C++. 
+
+* Use of For Loop 
+* Use of Nested for Loop
+* Comparison between For loop, while loop and Do While loop. 
+
+Outcomes: 
+
+* Students should be able to use while, nested while and do while loop loops. 
+* Students should be able to use For loop, Nested for Loop and differentiate them
+
 ### Loop
 
 Loops are used to repeat a block of code. Being able to have your program repeatedly execute a block of code is  one of the most basic but useful tasks in programming  --  many programs or websites  that produce  extremely  complex  output  are  really  only  executing  a  single  task  many  times.  Now,  think about what this means: a loop lets you write a very simple statement to produce a significantly greater result simply by repetition
@@ -997,7 +1011,7 @@ The expression can be any combination of Boolean statements that are legal. Even
 
 #### Flow Chart of While Loop
 ![[images/while_loop_flow_chart.png]]
-#### Example
+#### Example 4.1
 
 Write a program using while loop who print the values from 10 to 1.
 
@@ -1031,7 +1045,7 @@ This will produce the following output:
 1
 ```
 
-#### Example
+#### Example 4.2
 
 Print numbers from 1 to 10 using a while loop
 
@@ -1054,9 +1068,9 @@ int main()
 
 ```
 
-This example uses a while loop to count from 1 to 10. It does so by incrementing a variable  named  counter  by  1  in  each  iteration  or  cycle.Incrementing  a  variable  means  to  add something to it, so that its value is increased.
+This example uses a while loop to count from 1 to 10. It does so by incrementing a variable  named  counter  by  1  in  each  iteration  or  cycle. Incrementing  a  variable  means  to  add something to it, so that its value is increased.
 
-#### Example
+#### Example 4.3
 Printing the numbers you entered using a while loop
 
 ``` cpp
@@ -1127,7 +1141,7 @@ int main()
 
 ```
 
-#### Example
+#### Example 4.4
 
 A program to show the nested while loop
 
@@ -1189,7 +1203,7 @@ do {
 
 Its functional it  is exactly the same as the while loop, except that condition in the do-while loop is evaluated  after  the  execution  of  statement  instead  of  before,  granting  at  least  one  execution  of statement even if condition is never fulfilled. For example, the following example program echoes any number you enter until you enter 0.
 
-#### Example
+#### Example 4.5
 
 ``` cpp
 
@@ -1231,7 +1245,7 @@ The syntax of the `continue` statement is:
 continue;
 ```
 
-#### Example
+#### Example 4.6
 
 ``` cpp
 #include <iostream>
@@ -1257,7 +1271,188 @@ int main()
 
 ```
 
-### Practice Problem 1
+
+### For Loop
+
+A for loop is a repetition control structure that allows you to efficiently write a loop that needs to execute a specific number of times.
+
+Syntax:
+``` cpp
+for ( init; condition; increment )
+{
+
+	statement(s);
+
+}
+```
+
+Here is the flow of control in a for loop:
+
+* The **init** step is executed first, and only once. This step allows you to declare and initialize any loop control variables. You are not required to put a statement here, as long as semicolon appears.
+* Next, the **condition** is evaluated. If it is true, the body of the loop is executed. If it is false, the body of the loop does not execute, and flow of control jumps to the next statement just after the for loop.
+* After the body of the for loop executes, the flow of control jumps back up to the **increment** statement. This statement allows you to update any loop control variables. This statement can be left blank, as long as a semicolon appears after the condition.
+* The condition is now evaluated again. If it is true, the loop executes and the process repeats itself (body of loop, then increment step, and then again condition). After the condition becomes false, the for loop terminates.
+#### Flow Diagram
+![[images/for_loop_flow_chart.png]]
+#### Example 4.7
+``` cpp
+#include <iostream>
+
+using namespace std;
+int main ()
+{
+	// for loop execution
+	for( int a = 10; a < 20; a = a + 1 )
+	{
+		cout<< "value of a: " << a <<endl;
+	}
+	return 0;
+}
+```
+
+Output
+```
+value of a: 10
+value of a: 11
+value of a: 12
+value of a: 13
+value of a: 14
+value of a: 15
+value of a: 16
+value of a: 17
+value of a: 18
+value of a: 19
+```
+#### Example 4.8
+``` cpp
+#include<iostream>
+
+using namespace std;
+int main()
+{
+	int x;
+	for ( x=5; x <= 50; x = x+5 )
+	{
+	x = x + 5 could also be written x += 5
+	cout<< "Loop counter value is " << x << ".\n";
+	}
+	return 0; 
+}
+```
+
+Output
+```
+Loop counter value is 5.
+Loop counter value is 10.
+Loop counter value is 15.
+Loop counter value is 20.
+Loop counter value is 25.
+Loop counter value is 30.
+Loop counter value is 35.
+Loop counter value is 40.
+Loop counter value is 45.
+Loop counter value is 50.
+```
+
+*Can you modify the above program that counts from 50 to 5 with decrements of. 5?*
+
+### Nested For Loop
+
+We have seen the advantages of using various methods of iteration, or looping. Now let's take a look at what happens when we combine looping procedures.
+
+The placing of one loop inside the body of another loop is called **nesting**. When you "**nest**" two loops, the outer loop takes control of the number of complete repetitions of the inner loop. While all types of loops may be nested, the most nested loops are **for** loops.
+
+#### Example 4.9
+
+Rectangle comprised of x's.
+
+``` cpp
+for (int rows = 0; rows < 4; rows++)
+{
+	for (int col = 0; col < 12; col++)
+	{
+		cout<<”x”;
+	}
+}
+```
+Output
+```
+xxxxxxxxxxxx
+xxxxxxxxxxxx
+xxxxxxxxxxxx
+xxxxxxxxxxxx
+```
+
+#### Example 4.10
+
+Missing `init` statement in for loop
+
+``` cpp
+#include <iostream>
+
+using namespace std;
+
+int main()
+
+{
+    int x = 0;
+    for (; x < 10; x++)
+    {
+        cout << "\n"
+             << x;
+    }
+    return 0;
+}
+```
+
+**Note:** for ( ; ; ) works as an infinite loop
+
+Which Loop should I use?
+
+* while: the loop must repeat until a certain "condition" is met. If the "condition" is FALSE at the beginning of the loop, the loop is never executed. The "condition" may be determined by the user at the keyboard. The "condition" may be a numeric or an alphanumeric entry. This is a good, solid looping process with applications to numerous situations.
+* do-while: operates under the same concept as the while loop except that the do-while will always execute the body of the loop at least once. (Do-while is an exit-condition loop -- the condition is checked at the end of the loop.) This looping process is a good choice when you are asking a question, whose answer will determine if the loop is repeated.
+* for: the loop is repeated a "specific" number of times, determined by the program or the user. The loop "counts" the number of times the body will be executed. This loop is a good choice when the number of repetitions is known or can be supplied by the user.
+
+### Do while, while and for comparison
+
+The following program fragments print the numbers 1 - 20. Compare the different looping procedures. Remember, there are always MANY possible ways to prepare code!
+
+##### do-while
+
+``` cpp
+int ctr = 1;
+
+    do
+    {
+        cout << ctr++ << "\n";
+    } while (ctr <= 20);
+
+```
+
+##### for
+
+``` cpp
+
+int ctr;
+for (ctr = 1; ctr <=20; ctr++)
+{
+    Cout<<ctr<<”\n”;
+}
+```
+
+##### while
+``` cpp
+int ctr = 1;
+while (ctr<=20)
+{
+	cout<<ctr++<<”\n”;
+}
+```
+
+### Common Error
+If you wish the body of a for loop to be executed, DO NOT put a semicolon after the for's parentheses. Doing so will cause the for statement to execute only the counting portion of the loop, creating the illusion of a timing loop. The body of the loop will never be executed.
+Semicolons are required inside the parentheses of the for loop. The for loop is the only statement that requires such semicolon placement.
+### Practice Problem 4.1
 
 GIKI admin opens a joint account for their employees (Assistant professors, lecturers and Engineers) with starting amount of 50,000. Any employee in case of emergency in need of money can utilize the account and draw certain amount from the account i-e For Assistant professors its 25,000-maximum limit, for lecturers its 20,000 and for engineers its 10,000. Design a transaction system for the admin which applies all the checks (of maximum limit) on account and perform transactions. System should detect invalid inputs and display error messages
 
@@ -1327,7 +1522,7 @@ int main()
 }
 
 ```
-### Practice Problem 2
+### Practice Problem 4.2
 
 Shanley hotel in Islamabad wants to replace their waiters with robots to take orders from their 
 customers. Hotel owner wants to display menu on the screen of robots showing menu and their 
@@ -1406,202 +1601,7 @@ int main()
 }
 ```
 
-## Lab 4: Control Structures II
-
-The aims of this lab are to cover Control Structures of C++. 
-
-Learning Objectives: 
-* Use of For Loop 
-* Use of Nested for Loop
-* Comparison between For loop, while loop and Do While loop. 
-
-Outcomes: 
-
-* Students should be able to use while, nested while and do while loop loops. 
-* Students should be able to use For loop, Nested for Loop and differentiate them
-
-### 4.1 For Loop
-
-A for loop is a repetition control structure that allows you to efficiently write a loop that needs to execute a specific number of times.
-
-Syntax:
-``` cpp
-for ( init; condition; increment )
-{
-
-	statement(s);
-
-}
-```
-
-Here is the flow of control in a for loop:
-
-* The **init** step is executed first, and only once. This step allows you to declare and initialize any loop control variables. You are not required to put a statement here, as long as semicolon appears.
-* Next, the **condition** is evaluated. If it is true, the body of the loop is executed. If it is false, the body of the loop does not execute, and flow of control jumps to the next statement just after the for loop.
-* After the body of the for loop executes, the flow of control jumps back up to the **increment** statement. This statement allows you to update any loop control variables. This statement can be left blank, as long as a semicolon appears after the condition.
-* The condition is now evaluated again. If it is true, the loop executes and the process repeats itself (body of loop, then increment step, and then again condition). After the condition becomes false, the for loop terminates.
-#### Flow Diagram
-![[images/for_loop_flow_chart.png]]
-#### Example 4.1
-``` cpp
-#include <iostream>
-
-using namespace std;
-int main ()
-{
-	// for loop execution
-	for( int a = 10; a < 20; a = a + 1 )
-	{
-		cout<< "value of a: " << a <<endl;
-	}
-	return 0;
-}
-```
-
-Output
-```
-value of a: 10
-value of a: 11
-value of a: 12
-value of a: 13
-value of a: 14
-value of a: 15
-value of a: 16
-value of a: 17
-value of a: 18
-value of a: 19
-```
-#### Example 4.2
-``` cpp
-#include<iostream>
-
-using namespace std;
-int main()
-{
-	int x;
-	for ( x=5; x <= 50; x = x+5 )
-	{
-	x = x + 5 could also be written x += 5
-	cout<< "Loop counter value is " << x << ".\n";
-	}
-	return 0; 
-}
-```
-
-Output
-```
-Loop counter value is 5.
-Loop counter value is 10.
-Loop counter value is 15.
-Loop counter value is 20.
-Loop counter value is 25.
-Loop counter value is 30.
-Loop counter value is 35.
-Loop counter value is 40.
-Loop counter value is 45.
-Loop counter value is 50.
-```
-
-*Can you modify the above program that counts from 50 to 5 with decrements of. 5?*
-
-#### Nested For Loop
-
-We have seen the advantages of using various methods of iteration, or looping. Now let's take a look at what happens when we combine looping procedures.
-
-The placing of one loop inside the body of another loop is called **nesting**. When you "**nest**" two loops, the outer loop takes control of the number of complete repetitions of the inner loop. While all types of loops may be nested, the most nested loops are **for** loops.
-
-#### Example 4.3
-
-Rectangle comprised of x's.
-
-``` cpp
-for (int rows = 0; rows < 4; rows++)
-{
-	for (int col = 0; col < 12; col++)
-	{
-		cout<<”x”;
-	}
-}
-```
-Output
-```
-xxxxxxxxxxxx
-xxxxxxxxxxxx
-xxxxxxxxxxxx
-xxxxxxxxxxxx
-```
-
-#### Example 4.4
-
-Missing init statement in for loop
-
-``` cpp
-#include <iostream>
-
-using namespace std;
-
-int main()
-
-{
-    int x = 0;
-    for (; x < 10; x++)
-    {
-        cout << "\n"
-             << x;
-    }
-    return 0;
-}
-```
-
-**Note:** for ( ; ; ) works as an infinite loop
-
-Which Loop should I use?
-
-* while: the loop must repeat until a certain "condition" is met. If the "condition" is FALSE at the beginning of the loop, the loop is never executed. The "condition" may be determined by the user at the keyboard. The "condition" may be a numeric or an alphanumeric entry. This is a good, solid looping process with applications to numerous situations.
-* do-while: operates under the same concept as the while loop except that the do-while will always execute the body of the loop at least once. (Do-while is an exit-condition loop -- the condition is checked at the end of the loop.) This looping process is a good choice when you are asking a question, whose answer will determine if the loop is repeated.
-* for: the loop is repeated a "specific" number of times, determined by the program or the user. The loop "counts" the number of times the body will be executed. This loop is a good choice when the number of repetitions is known or can be supplied by the user.
-
-#### Example 4.5
-
-The following program fragments print the numbers 1 - 20. Compare the different looping procedures. Remember, there are always MANY possible ways to prepare code!
-
-##### do-while
-
-``` cpp
-int ctr = 1;
-
-    do
-    {
-        cout << ctr++ << "\n";
-    } while (ctr <= 20);
-
-```
-
-##### for
-
-``` cpp
-
-int ctr;
-for (ctr = 1; ctr <=20; ctr++)
-{
-    Cout<<ctr<<”\n”;
-}
-```
-
-##### while
-``` cpp
-int ctr = 1;
-while (ctr<=20)
-{
-	cout<<ctr++<<”\n”;
-}
-```
-
-### Common Error
-If you wish the body of a for loop to be executed, DO NOT put a semicolon after the for's parentheses. Doing so will cause the for statement to execute only the counting portion of the loop, creating the illusion of a timing loop. The body of the loop will never be executed.
-Semicolons are required inside the parentheses of the for loop. The for loop is the only statement that requires such semicolon placement.
-
-### Practice Problem 4.2
+### Practice Problem 4.3
 
 To make telephone numbers easier to remember, some companies use letters to show their telephone number. For example, using letters, the telephone number 438-5626 can be shown as GET LOAN. In some cases, to make a telephone number meaningful, companies might use more than seven letters. For example, 225-5466 can be displayed as CALL HOME, which uses eight letters. Write a program that prompts the user to enter a telephone number expressed in letters and outputs the corresponding telephone number in digits.
 
@@ -1632,8 +1632,8 @@ int main()
 
             if (letter > 'Z')
             {
-
-                letter = (int)letter - 32; // Convert lowercase to uppercase if required.
+				// Convert lowercase to uppercase if required.
+                letter = (int)letter - 32; 
             }
 
             if (counter == 4)
@@ -1739,7 +1739,7 @@ int main()
 }
 ```
 
-### Practice Problem 4.3
+### Practice Problem 4.4
 Write a C++ program that does the following:
 - It asks the user to enter an odd negative integer.
 - The program reads a value n entered by the user. If the value is not legal, the program repeatedly makes the user type in another value until a legal value of n has been entered.
@@ -1791,6 +1791,6 @@ int main()
 }
 ```
 
+## Lab 5: User defined Functions
 
-Lab 
 
