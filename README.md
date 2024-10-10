@@ -157,7 +157,7 @@ A C++ comment is written in one of the following ways:
 immediately preceded by a backslash terminates this form of comment. Therefore, it is
 commonly called a single-line comment.
 
-The comment characters (/*, */, and //) have no special meaning within a character constant, string literal, or comment.
+The comment characters (`/*` , `*/`, and `//`) have no special meaning within a character constant, string literal, or comment.
 
 #### Example 2.3
 
@@ -191,14 +191,12 @@ The value of ch is b
 The value of a is 10
 ```
 
-Notice the use of **“endl”** at the end of the **cout** statements. It simply adds a carriage return which ends the
-current line
+Notice the use of `endl` at the end of the `cout` statements. It simply adds a carriage return which ends the current line
 
 ### Inputing Multiple Values
 
 If you have multiple format specifiers  within the string argument of cin, you can input multiple values.
-All you need to do is to separate each format specifier with a “>>”a string that separates variables. As a
-default, cin stops reading in a value when `space` , `tab` or `enter` is pressed. Consider
+All you need to do is to separate each format specifier with a `>>` string that separates variables. By default, cin stops reading in a value when `space` , `tab` or `enter` is pressed. Consider
 
 ```cpp
 cin >> rollNumber >> myAge;
