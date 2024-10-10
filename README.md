@@ -257,9 +257,8 @@ out  for  the  truncation  of  an  int  divided  by  an  int!  Now, the  one  th
 modulus operator, sometimes known as the remainder operator.  
 To keep things simple, a%b returns the REMAINDER that occurs after performing a/b. For this
 operator, a and b MUST be integers!  
-For example, `6%3` returns `0` because 3 goes into 6 **EXACTLY**. Similarly, `4%4` , `8%2` and `16%8` all return `0` . So  why  does  3%4  return  3? Picture  it  this  way:  you have  3  holes  to  fill, but  you  can  only  fill  4
-holes  at  a  time.  You  can't  fill  a  group  of  4  holes, therefore  the  3  holes  you  had  are  still  empty.
-Similar story for 7%4 because you can fill in one group of 4 but still have 3 holes remaining.
+For example, `6 % 3` returns `0` because 3 goes into 6 **EXACTLY**. Similarly, `4 % 4` , `8 % 2` and `16 % 8` all return `0` . So  why  does  `3 % 4`  return  3? Picture  it  this  way:  you have  3  holes  to  fill, but  you  can  only  fill  4 holes  at  a  time.  You  can't  fill  a  group  of  4  holes, therefore  the  3  holes  you  had  are  still  empty.
+Similar story for `7 % 4` because you can fill in one group of 4 but still have 3 holes remaining.
 
 #### Example 2.4
 
@@ -688,7 +687,8 @@ Outcomes:
 
 ### Ternary Operator
 
-Syntax
+#### Syntax
+
 ``` cpp
 variable = (condition) ? expressionTrue : expressionFalse;
 ```
@@ -701,7 +701,7 @@ variable = (condition) ? expressionTrue : expressionFalse;
     cout << result;
 
 ```
-Output
+#### Output
 ```
 Good evening.
 ```
@@ -716,7 +716,7 @@ single expression and then execute the relevant bit of code.
 You can have as many cases as you want, including a default case which is evaluated if all the cases 
 fail.
 
-Let's look at the general form...
+#### Syntax
 
 ``` cpp
 switch (expression) {  
@@ -729,10 +729,7 @@ switch (expression) {
         /* do this if all other cases fail */  
 }
 ```
-expression is any legal C++ expression, and the statements are any legal C++ statements or block of 
-statements.  switch  evaluates  expression  and  compares  the  result  to  each  of  the  case  values.  Note, 
-however, that the evaluation is only for equality; relational operators  may not be used here, nor can 
-Boolean operations.
+expression is any legal C++ expression, and the statements are any legal C++ statements or block of statements.  switch  evaluates  expression  and  compares  the  result  to  each  of  the  case  values.  Note, however, that the evaluation is only for equality; relational operators  may not be used here, nor can Boolean operations.
 
 #### Flow Chart of Switch
 
@@ -984,13 +981,7 @@ Loops are used to repeat a block of code. Being able to have your program repeat
 
 ### While Loop
 
-The most basic loop in C is the while loop. A while statement is like a repeating if statement. Like an 
-If statement, if the test condition is true: the statements get executed. The difference is that after the 
-statements have been executed, the test condition is checked again. If it is still true the statements get 
-executed again. This cycle repeats until the test condition evaluates to false.  
-A while loop is a control flow statement that allows code to be executed repeatedly based on a given 
-condition. The while consists of a block of code and a condition. The condition is first evaluated and 
-if  the  condition  is  true  the  code  within  the  block  is  then  executed.  This  repeats  until  the  condition 
+The most basic loop in C is the while loop. A while statement is like a repeating if statement. Like an If statement, if the test condition is true: the statements get executed. The difference is that after the statements have been executed, the test condition is checked again. If it is still true the statements get executed again. This cycle repeats until the test condition evaluates to false.  A while loop is a control flow statement that allows code to be executed repeatedly based on a given condition. The while consists of a block of code and a condition. The condition is first evaluated and if  the  condition  is  true  the  code  within  the  block  is  then  executed.  This  repeats  until  the  condition 
 becomes false.
 
 #### Syntax
@@ -1237,7 +1228,7 @@ You entered: 0
 
 In computer programming, the `continue` statement is used to skip the current iteration of the loop and the control of the program goes to the next iteration.
 
-The syntax of the `continue` statement is:
+#### Syntax
 
 ``` cpp
 continue;
@@ -1274,13 +1265,12 @@ int main()
 
 A for loop is a repetition control structure that allows you to efficiently write a loop that needs to execute a specific number of times.
 
-Syntax:
+#### Syntax
 ``` cpp
+
 for ( init; condition; increment )
 {
-
 	statement(s);
-
 }
 ```
 
@@ -1522,19 +1512,19 @@ int main()
 ```
 ### Practice Problem 4.2
 
-Shanley hotel in Islamabad wants to replace their waiters with robots to take orders from their 
-customers. Hotel owner wants to display menu on the screen of robots showing menu and their 
-prices as:  
-           3.5.1 Kabab 500 rupee with three pieces.  
-          3.5.2 Rice with BBQ 200 per platter   
-          3.5.3 Drinks 50 each  
-          3.5.4 Mutton karahi 1200 
+Shanley hotel in Islamabad wants to replace their waiters with robots to take orders from their customers. Hotel owner wants to display menu on the screen of robots showing menu and their prices as:
+| Item               | Price (PKR) |
+|--------------------|-------------|
+| Kabab              | 500         |
+| Rice               | 200         |
+| Drink              | 50          |
+| Mutton Karahi      | 1200        | 
  
- 
-Customer should be able to select items from menu as well as their amount (how much they want to 
-order each item). Wrong inputs should be detected and error message should be displayed in case of 
-wrong input. Bill should be displayed as well on the screen of the robot when customer is done with 
-order. Write a program for above scenario.
+- Customer should be able to select items from menu as well as their amount (how much they want to order each item). 
+- Wrong inputs should be detected and error message should be displayed in case of wrong input. 
+- Bill should be displayed as well on the screen of the robot when customer is done with order. 
+
+Write a program for above scenario.
 
 ``` cpp
 
@@ -1543,13 +1533,13 @@ using namespace std;
 int main()
 {
 
-    int t = 1;
-    int a1 = 500;
-    int a2 = 200;
-    int a3 = 50;
+    int flag = 1;
+    int kebabPrice = 500;
+    int ricePrice = 200;
+    int drinkPrice = 50;
     int a4 = 1200;
-    int amt = 1;
-    int op;
+    int quantity = 1;
+    int op = 0;
     int amount = 0;
 
     do
@@ -1559,43 +1549,42 @@ int main()
         cout << "2.Rice with BBq ---- 200 PER PLATTER\n";
         cout << "3.Drinks --- 50 each\n";
         cout << "4. mutton Karahi ---- 1200\n";
-        cout << "Select your food items";
+        cout << "Select your food item: ";
         cin >> op;
         if (op == 1)
         {
-            cout << "How many servings\n";
-            cin >> amt;
-            amount = amount + a1 * amt;
+            cout << "How many servings: ";
+            cin >> quantity;
+            amount = amount + kebabPrice * quantity;
         }
         else if (op == 2)
         {
-            cout << "How many servings\n";
-            cin >> amt;
-            amount = amount + a2 * amt;
+            cout << "How many servings: ";
+            cin >> quantity;
+            amount = amount + ricePrice * quantity;
         }
         else if (op == 3)
         {
-            cout << "How many servings\n";
-            cin >> amt;
-            amount = amount + a3 * amt;
+            cout << "How many servings: ";
+            cin >> quantity;
+            amount = amount + drinkPrice * quantity;
         }
         else if (op == 4)
         {
-            cout << "How many servings\n";
-            cin >> amt;
-            amount = amount + a4 * amt;
+            cout << "How many servings: ";
+            cin >> quantity;
+            amount = amount + a4 * quantity;
         }
         else
         {
-            cout << "Try again!! Wrong input\n";
+            cout << "Try again!! Wrong input: ";
         }
 
-        cout << "Want to continue?? Press 1\n";
-        cin >> t;
-    } while (t != 0);
+        cout << "Enter 1 to add more items and 0 to exit: ";
+        cin >> flag;
+    } while (flag != 0);
 
-    cout << "Your total bill are:\n";
-    cout << amount;
+    cout << "Your total bill is: "<< amount;
 }
 ```
 
@@ -1789,7 +1778,7 @@ int main()
 }
 ```
 
-## Lab 5: User defined Functions
+## Lab 5: User defined Functions -I
 
 Learning Objectives
 
@@ -1978,110 +1967,6 @@ int multiply(int a, int b) {
 - **Arguments**: In `main()`, when the function is called as `multiply(num1, num2)`, `num1` and `num2` (which have the values `6` and `7`) are arguments passed to the function.
 - The arguments are copied into the parameters (`a` and `b`) within the function and used to compute the product.
 
-### Pass Function Arguments by Value
-
-In this method, the actual value of the argument is passed to the function. The function works on a copy of the value, so any changes made to the parameter inside the function do not affect the original argument.
-
-#### Example 5.
-
-``` cpp
-void increment(int a) {
-    a = a + 1;
-}
-
-int main() {
-    int num = 5;
-    increment(num);
-    cout << num << endl;  // Output will still be 5
-    return 0;
-}
-```
-In the example above, `num` is passed by value to the `increment` function, and changes made to `a` do not affect `num` in the calling code.
-
-### Pass Function Arguments by Reference
-
-In this method, the reference (or memory address) of the argument is passed to the function. Changes made to the parameter inside the function affect the actual argument.
-
-``` cpp
-void increment(int &a) {
-    a = a + 1;
-}
-
-int main() {
-    int num = 5;
-    increment(num);
-    cout << num << endl;  // Output will now be 6
-    return 0;
-}
-
-```
-Here, `num` is passed by reference, so the `increment` function modifies the actual value of `num`.
-
-### Const Parameters
-
-When a function parameter is declared as `const`, it means that the function cannot modify the value of that parameter. This is useful when you want to prevent accidental changes to the passed arguments, especially when passing by reference or pointer.
-
-#### Syntax
-``` cpp
-return_type function_name(const parameter_type &parameter_name);
-```
-
-#### Example 5. 
-
-``` cpp
-void printNumber(const int &num) {
-    cout << "Number: " << num << endl;
-    // num = num + 1;  // Error: `num` is constant and cannot be modified
-}
-
-int main() {
-    int value = 10;
-    printNumber(value);
-    return 0;
-}
-
-```
-
-In this example, the function `printNumber` accepts a `const` reference to an integer. Since the parameter is declared as `const`, it cannot be modified within the function. This is particularly useful when passing large objects by reference to avoid copying while ensuring the function doesn’t modify the object.
-
-#### Benefits of Using `const`:
-
-- **Prevents Modification**: Ensures that the parameter cannot be modified within the function, preventing unintended changes.
-- **Performance**: Passing large objects (like strings, vectors, or custom objects) by `const` reference avoids unnecessary copying while still protecting the argument from modification.
-
-#### Example 5.
-
-``` cpp
-void display(const string &message) {
-    cout << message << endl;
-}
-
-int main() {
-    string greet = "Hello, C++!";
-    display(greet);  // Efficient and safe
-    return 0;
-}
-
-```
-
-### Default Parameters
-
-C++ also supports **default parameters**, where a default value is assigned to a parameter if no argument is provided during the function call.
-
-#### Example 5.
-
-``` cpp
-int add(int a, int b = 10) { 
-	return a + b; 
-} 
-int main() {
-	cout << add(5) << endl; // Outputs 15 (since b defaults to 10) 
-	cout << add(5, 3) << endl; // Outputs 8 (b is overridden by 3) 
-	return 0; 
-}
-```
-
-In this example, the second parameter `b` has a default value of `10`. If the function `add` is called with only one argument, the default value is used. If two arguments are provided, the second argument overrides the default value.
 
 ### Scopes
 
@@ -2228,9 +2113,10 @@ string accountNumber; // Account number
 double balance = 0.0; // Account balance initialized to 0.0
 
 // Function to initialize the bank account
-void initializeAccount(const string &accNum) {
+void initializeAccount(string accNum) {
     accountNumber = accNum; // Set the account number
     balance = 0.0;          // Initial balance set to 0
+    cout << "Account initialized successfully!" << endl;
 }
 
 // Function to deposit money into the account
@@ -2266,77 +2152,49 @@ string getAccountNumber() {
 }
 
 int main() {
-    // Initializing the account
-    initializeAccount("123456");
+    int choice;
+    string accNum;
+    double amount;
 
-    // Performing transactions
-    deposit(500.00);
-    deposit(300.00);
-    withdraw(200.00);
-    withdraw(800.00); // This should show an error for insufficient funds
+    // Initialize account with user input
+    cout << "Enter your account number to initialize: ";
+    cin >> accNum;
+    initializeAccount(accNum);
 
-    // Displaying final account details
-    cout << "Account Number: " << getAccountNumber() << endl;
-    cout << "Final Balance: $" << getBalance() << endl;
+    do {
+        // Display menu options to the user
+        cout << "\nSelect an action:" << endl;
+        cout << "1. Deposit money" << endl;
+        cout << "2. Withdraw money" << endl;
+        cout << "3. Check balance" << endl;
+        cout << "4. Exit" << endl;
+        cout << "Enter your choice: ";
+        cin >> choice;
 
-    return 0;
-}
-```
-
-
-### Practice Problem 5.2
-
-Create a simple program to calculate the area of a rectangle. Implement a function named `calculateArea` that accepts two parameters:
-- `length` (double) - the length of the rectangle
-- `width` (double, default value = 1.0) - the width of the rectangle (optional)
-
-The function should:
-- Calculate the area of the rectangle and store the result in a reference parameter `area` (double).
-- Return the area of the rectangle.
-
-Implement the program in the `main()` function, where you will:
-- Declare a variable for area.
-- Call `calculateArea` with both the `length` and `width` provided.
-- Call `calculateArea` again with only the `length` provided to use the default value for width.
-- Print the areas calculated in both cases.
-
-#### Requirements
-- Use default parameters in the function.
-- Use pass by reference for the area variable.
-
----
-
-##### Expected Output
-
----
-
-Area with length 5.0 and width 3.0: 15.0 Area with length 5.0 and default width: 5.0
-
-``` cpp
-#include <iostream>
-
-using namespace std;
-
-// Function to calculate the area of a rectangle
-double calculateArea(double length, double width = 1.0, double &area) {
-    area = length * width; // Calculate area and store it in the reference variable
-    return area;           // Return the area
-}
-
-int main() {
-    double area; // Variable to hold the calculated area
-
-    // Call calculateArea with both length and width
-    double length1 = 5.0;
-    double width1 = 3.0;
-    calculateArea(length1, width1, area);
-    cout << "Area with length " << length1 << " and width " << width1 << ": " << area << endl;
-
-    // Call calculateArea with only length (width uses default value)
-    double length2 = 5.0;
-    calculateArea(length2, area);
-    cout << "Area with length " << length2 << " and default width: " << area << endl;
+        switch (choice) {
+            case 1:
+                cout << "Enter amount to deposit: ";
+                cin >> amount;
+                deposit(amount);
+                break;
+            case 2:
+                cout << "Enter amount to withdraw: ";
+                cin >> amount;
+                withdraw(amount);
+                break;
+            case 3:
+                cout << "Account Number: " << getAccountNumber() << endl;
+                cout << "Current Balance: $" << getBalance() << endl;
+                break;
+            case 4:
+                cout << "Exiting program." << endl;
+                break;
+            default:
+                cout << "Invalid choice. Please try again." << endl;
+        }
+    } while (choice != 4);
 
     return 0;
 }
+
 ```
