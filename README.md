@@ -242,15 +242,15 @@ New values are: 2 5
 
 ### Arthmetic Operators
 
-Arithmetic operators  are commonly used in a variety of programming languages. In C, there are five of them, and they all take two **OPERANDS**. Recall that an operand is an expression that is  required for an operator to work. For example, for ` ` ` 8 + 4 ` `  `, `  ` ` 8 ` `  ` and `  ` ` 4 ` ` ` are considered as the operands.
+Arithmetic operators  are commonly used in a variety of programming languages. In C, there are five of them, and they all take two **OPERANDS**. Recall that an operand is an expression that is  required for an operator to work. For example, for `8 + 4 `, ` 8 ` and  ` 4 ` are considered as the operands.
 
 | **Operator Name** | **Symbol** |
 | ----------------- | ---------- |
-| Multiplication    | `*` |
-| Division          | `/` |
-| Modulus           | `%` |
-| Addition          | `+` |
-| Subtraction       | `-` |
+| Multiplication    |     `*`    |
+| Division          |     `/`    |
+| Modulus           |     `%`    |
+| Addition          |     `+`    |
+| Subtraction       |     `-`    |
 
 #### What is `%` ?
 
