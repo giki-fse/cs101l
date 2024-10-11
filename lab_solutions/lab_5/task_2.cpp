@@ -8,49 +8,8 @@ enum TemperatureScale
     Kelvin
 };
 
-// Function to convert temperature between different scales
-double convertTemperature(double temperature, TemperatureScale inputScale, TemperatureScale outputScale)
-{
-    // Return the original value if input and output scales are the same
-    if (inputScale == outputScale)
-    {
-        return temperature;
-    }
-    // Conversion logic based on input and output scales
-    switch (inputScale)
-    {
-    case Celsius:
-        if (outputScale == Fahrenheit)
-        {
-            return (temperature * 9.0 / 5.0) + 32;
-        }
-        else
-        {
-            return temperature + 273.15;
-        }
-        break;
-    case Fahrenheit:
-        if (outputScale == Celsius)
-        {
-            return (temperature - 32) * 5.0 / 9.0;
-        }
-        else
-        {
-            return ((temperature - 32) * 5.0 / 9.0) + 273.15;
-        }
-        break;
-    case Kelvin:
-        if (outputScale == Celsius)
-        {
-            return temperature - 273.15;
-        }
-        else
-        {
-            return ((temperature - 273.15) * 9.0 / 5.0) + 32;
-        }
-        break;
-    }
-}
+// function declaration
+double convertTemperature(double, TemperatureScale, TemperatureScale);
 
 int main()
 {
@@ -122,4 +81,49 @@ int main()
     } while (flag);
 
     return 0;
+}
+
+
+// Function to convert temperature between different scales
+double convertTemperature(double temperature, TemperatureScale inputScale, TemperatureScale outputScale)
+{
+    // Return the original value if input and output scales are the same
+    if (inputScale == outputScale)
+    {
+        return temperature;
+    }
+    // Conversion logic based on input and output scales
+    switch (inputScale)
+    {
+    case Celsius:
+        if (outputScale == Fahrenheit)
+        {
+            return (temperature * 9.0 / 5.0) + 32;
+        }
+        else
+        {
+            return temperature + 273.15;
+        }
+        break;
+    case Fahrenheit:
+        if (outputScale == Celsius)
+        {
+            return (temperature - 32) * 5.0 / 9.0;
+        }
+        else
+        {
+            return ((temperature - 32) * 5.0 / 9.0) + 273.15;
+        }
+        break;
+    case Kelvin:
+        if (outputScale == Celsius)
+        {
+            return temperature - 273.15;
+        }
+        else
+        {
+            return ((temperature - 273.15) * 9.0 / 5.0) + 32;
+        }
+        break;
+    }
 }
