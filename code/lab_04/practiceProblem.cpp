@@ -28,24 +28,24 @@ int main()
 
 {
 
-int inputNumber, sum, individualNumber;
+    int inputNumber, sum, individualNumber;
 
-cin >> inputNumber;
+    cin >> inputNumber;
 
-inputNumber = abs(inputNumber); //Handle negative numbers 
-sum = 0;
+    inputNumber = abs(inputNumber); // Handle negative numbers
+    sum = 0;
 
-do {
+    do
+    {
 
-individualNumber = inputNumber % 10; //Extract the last digit of the number 
-sum += individualNumber;
+        individualNumber = inputNumber % 10; // Extract the last digit of the number
+        sum += individualNumber;
 
-inputNumber = inputNumber / 10; //Remove the last digit
-cout << individualNumber;
-} while (inputNumber > 0);
+        inputNumber = inputNumber / 10; // Remove the last digit
+        cout << individualNumber;
+    } while (inputNumber > 0);
 
-cout << "The sum of the individual numbers is: " << sum << endl;
+    cout << "The sum of the individual numbers is: " << sum << endl;
 
-return 0;
-
+    return 0;
 }
