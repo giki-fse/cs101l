@@ -2198,3 +2198,30 @@ int main() {
 }
 
 ```
+
+
+## Lab 6: User defined Function - II, Recursion and Enums
+
+### Default Parameters
+
+A default value is assigned to a parameter if no argument is provided during the function call.
+
+#### Example 5.
+
+``` cpp
+int add(int a, int b = 10) { 
+	return a + b; 
+} 
+int main() {
+	cout << add(5) << endl; // Outputs 15 (since b defaults to 10) 
+	cout << add(5, 3) << endl; // Outputs 8 (b is overridden by 3) 
+	return 0; 
+}
+```
+
+In this example, the second parameter `b` has a default value of `10`. If the function `add` is called with only one argument, the default value is used. If two arguments are provided, the second argument overrides the default value.
+
+
+### Recursion
+
+### Function Overloading
