@@ -2224,4 +2224,229 @@ In this example, the second parameter `b` has a default value of `10`. If the fu
 
 ### Recursion
 
+Recursion is a programming technique where a function calls itself to solve smaller instances of the same problem until it reaches a base condition that stops the recursive calls. It is a powerful tool for solving problems that can be broken down into smaller, similar subproblems, for example finding factorial of an integer.
+
+#### Key Points of Recursion
+
+1. **Base Case**: The condition under which the function stops calling itself. Without a base case, the recursion would continue indefinitely, leading to a memory constraints.
+2. **Recursive Case**: The part of the function where it calls itself to break the problem down into smaller parts.
+
+#### Example 6.
+
+The factorial of a number `n` (denoted as `n!`) is the product of all positive integers less than or equal to n. Factorial can be defined recursively as:
+
+- `n! = n * (n-1)!`
+- Base case: `0! = 1`
+
+
+``` cpp
+
+#include <iostream>
+using namespace std;
+
+// Recursive function to calculate factorial
+int factorial(int n) {
+    if (n == 0) {
+        return 1;  // Base case
+    } else {
+        return n * factorial(n - 1);  // Recursive case
+    }
+}
+
+int main() {
+    int number = 5;
+    cout << "Factorial of " << number << " is " << factorial(number) << endl;
+    return 0;
+}
+
+```
+
+##### Output
+
+```
+
+Factorial of 5 is 120
+```
+
+##### Explanation
+
+1. When `factorial(5)` is called, the function keeps calling itself with `n - 1` (i.e., 5 → 4 → 3 → 2 → 1 → 0).
+2. Once `n` reaches 0, the base case is triggered, returning 1.
+3. The recursion then unwinds, multiplying the results as it returns from each recursive call:
+`1 * 1 = 1`,
+`2 * 1 = 2`,
+`3 * 2 = 6`,
+`4 * 6 = 24`,
+`5 * 24 = 120`.
+
+
 ### Function Overloading
+
+Function overloading allows you to define multiple functions with the same name, provided they differ in either the number or types of their parameters. This enhances code readability and maintainability by enabling the use of a single, descriptive function name for related tasks that operate on different types or amounts of data
+
+#### Key points of Function Overloading
+
+1. **Same Function Name:** The overloaded functions must have the same name.
+2. **Different Parameter List:** Functions must differ in either:
+    - Number of parameters
+    - Type of parameters
+    - Order of parameters
+3. **Return Type:** The return type alone cannot be used to distinguish overloaded functions.
+
+``` cpp
+
+#include <iostream>
+using namespace std;
+
+// Overloaded function for adding two integers
+int add(int a, int b) {
+    return a + b;
+}
+
+// Overloaded function for adding two floating-point numbers
+float add(float a, float b) {
+    return a + b;
+}
+
+// Overloaded function for adding three integers
+int add(int a, int b, int c) {
+    return a + b + c;
+}
+
+int main() {
+    // Call the overloaded functions
+    cout << "Addition of two integers: " << add(10, 20) << endl;          // Calls add(int, int)
+    cout << "Addition of two floats: " << add(10.5f, 20.3f) << endl;      // Calls add(float, float)
+    cout << "Addition of three integers: " << add(10, 20, 30) << endl;    // Calls add(int, int, int)
+
+    return 0;
+}
+```
+
+##### Output
+
+```
+
+Addition of two integers: 30
+Addition of two floats: 30.8
+Addition of three integers: 60
+```
+
+##### Explanation
+
+- `add(int a, int b)`: Adds two integers.
+- `add(float a, float b)`: Adds two floating-point numbers.
+- `add(int a, int b, int c)`: Adds three integers.
+
+The compiler automatically selects the appropriate overloaded function based on the number and types of arguments passed to the function. This makes the function name consistent while providing flexibility for different use cases.
+
+### Enum
+
+Enums (short for enumerations) are user-defined data types that consist of a set of named integral constants. They make the code more readable and maintainable by allowing you to define a group of related constants with descriptive names.
+
+#### Syntax
+
+``` cpp
+
+enum EnumName {
+    Constant1, // By default, the value is 0
+    Constant2, // The value is 1
+    Constant3  // The value is 2, and so on
+};
+```
+
+#### Example 6.
+
+``` cpp
+
+#include <iostream>
+using namespace std;
+
+// Define an enum for days of the week
+enum DaysOfWeek {
+    Sunday,    // 0
+    Monday,    // 1
+    Tuesday,   // 2
+    Wednesday, // 3
+    Thursday,  // 4
+    Friday,    // 5
+    Saturday   // 6
+};
+
+int main() {
+    DaysOfWeek today = Wednesday;
+
+    if (today == Wednesday) {
+        cout << "It's Wednesday!" << endl;
+    }
+
+    // Output the integer value of today (3 in this case)
+    cout << "Integer value of today: " << today << endl;
+
+    return 0;
+}
+```
+
+Output
+
+```
+
+It's Wednesday!
+Integer value of today: 3
+```
+
+#### Example 6.
+
+``` cpp
+
+#include <iostream>
+using namespace std;
+
+enum TrafficLight {
+    Red,    // 0
+    Yellow, // 1
+    Green   // 2
+};
+
+void trafficLightAction(TrafficLight light) {
+    switch (light) {
+        case Red:
+            cout << "Stop! The light is Red." << endl;
+            break;
+        case Yellow:
+            cout << "Caution! The light is Yellow." << endl;
+            break;
+        case Green:
+            cout << "Go! The light is Green." << endl;
+            break;
+        default:
+            cout << "Invalid traffic light!" << endl;
+    }
+}
+
+int main() {
+    TrafficLight currentLight = Green;
+
+    trafficLightAction(currentLight); // Output: Go! The light is Green.
+
+    currentLight = Yellow;
+    trafficLightAction(currentLight); // Output: Caution! The light is Yellow.
+
+    currentLight = Red;
+    trafficLightAction(currentLight); // Output: Stop! The light is Red.
+
+    return 0;
+}
+
+```
+- The TrafficLight enum represents three possible states of a traffic light: Red, Yellow, and Green.
+- The function trafficLightAction() takes the current traffic light as an argument and performs an action based on its value using a switch statement.
+- In the main() function, we simulate different traffic light states and call the function to display appropriate messages.
+
+#### Output
+```
+
+Go! The light is Green.
+Caution! The light is Yellow.
+Stop! The light is Red.
+```
