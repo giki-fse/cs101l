@@ -195,7 +195,8 @@ The Fibonacci sequence is defined mathematically as follows:
 
 1. **F(0) = 0** (the first Fibonacci number)
 2. **F(1) = 1** (the second Fibonacci number)
-3. For \( n \geq 2 \): **F(n) = F(n - 1) + F(n - 2)**
+3. For **n >= 2**: 
+    - **F(n) = F(n - 1) + F(n - 2)**
 
 ### Sample Output
 
