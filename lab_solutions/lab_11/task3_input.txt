@@ -1,0 +1,5 @@
+Line 1: Welcome to C++ programming!
+Line 2: File handling is an essential skill.
+Line 3: Learn how to read and write files.
+Line 4: File handling allows persistent data storage.
+Line 5: Keep practicing file operations in C++.
